@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,28 +15,30 @@ import java.util.List;
 
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 
+    private final TeamAdapterOnClickHandler mClickHandler;
     private List<Team> teamList;
     private Context mContext;
 
-    public TeamAdapter(Context context, List<Team> teams) {
+    TeamAdapter(Context context, List<Team> teams, TeamAdapterOnClickHandler clickHandler) {
         mContext = context;
         teamList = teams;
+        mClickHandler = clickHandler;
     }
 
     @Override
-    public TeamHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TeamAdapter.TeamHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater =  LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_view_team, parent, false);
         return new TeamAdapter.TeamHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(TeamHolder holder, int position) {
+    public void onBindViewHolder(TeamAdapter.TeamHolder holder, int position) {
         Team team = teamList.get(position);
         String teamLocation = team.getTeamLocation();
         String teamName = team.getTeamName();
-        String teamConference = "Conference"; // just a placeholder for the time being
-        holder.bindView(teamLocation, teamName, teamConference);
+        String teamDivision = team.getTeamDivision();
+        holder.bindView(teamLocation, teamName, teamDivision);
     }
 
     @Override
@@ -48,21 +49,24 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         return teamList.size();
     }
 
+    public interface TeamAdapterOnClickHandler {
+        void onClick(Team team);
+    }
+
     public class TeamHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView teamCityTextView;
         private TextView teamNameTextView;
         private TextView teamConferenceTextView;
 
-        public TeamHolder(View itemView) {
+        TeamHolder(View itemView) {
             super(itemView);
-
             teamCityTextView = itemView.findViewById(R.id.teamCity);
             teamNameTextView = itemView.findViewById(R.id.teamName);
-            teamConferenceTextView = itemView.findViewById(R.id.teamConference);
+            teamConferenceTextView = itemView.findViewById(R.id.teamDivision);
             itemView.setOnClickListener(this);
         }
 
-        public void bindView(String teamLocation, String teamName, String conference) {
+        void bindView(String teamLocation, String teamName, String conference) {
             teamCityTextView.setText(teamLocation);
             teamNameTextView.setText(teamName);
             teamConferenceTextView.setText(conference);
@@ -72,7 +76,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
             Team selectedTeam = teamList.get(adapterPosition);
-            Toast.makeText(mContext, selectedTeam.getTeamWebSite(), Toast.LENGTH_SHORT);
+            mClickHandler.onClick(selectedTeam);
         }
     }
 }

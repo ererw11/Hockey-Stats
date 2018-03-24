@@ -19,20 +19,20 @@ import java.util.List;
  * Created 3/19/2018.
  */
 
-public class TeamFetcher {
+class TeamFetcher {
 
     private static final String TAG = TeamFetcher.class.getSimpleName();
 
     private static final String TEAMS_URL = "https://statsapi.web.nhl.com/api/v1/teams";
 
-    final static String T_ID = "id";
-    final static String T_TEAM_NAME = "teamName";
-    final static String T_LOCATION_NAME = "locationName";
-    final static String T_WEBSITE = "officialSiteUrl";
-    final static String T_DIVISION = "division";
-    final static String T_DIVISION_NAME = "name";
+    private final static String T_ID = "id";
+    private final static String T_TEAM_NAME = "teamName";
+    private final static String T_LOCATION_NAME = "locationName";
+    private final static String T_WEBSITE = "officialSiteUrl";
+    private final static String T_DIVISION = "division";
+    private final static String T_DIVISION_NAME = "name";
 
-    public byte[] getUrlBytes(String urlSpec) throws IOException {
+    private byte[] getUrlBytes(String urlSpec) throws IOException {
         URL url = new URL(urlSpec);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         try {
@@ -55,21 +55,20 @@ public class TeamFetcher {
         }
     }
 
-    public String getUrlString(String urlSpec) throws IOException {
+    private String getUrlString(String urlSpec) throws IOException {
         return new String(getUrlBytes(urlSpec));
     }
 
-    public List<Team> fetchTeams() {
+    List<Team> fetchTeams() {
         List<Team> teams = new ArrayList<>();
 
         try {
             String builtUri = Uri.parse(TEAMS_URL).buildUpon().build().toString();
-
             String jsonString = getUrlString(builtUri);
-            Log.i(TAG, "Received JSON " + jsonString);
-            JSONArray jsonBody = new JSONArray(jsonString);
-
-            parseTeams(teams, jsonBody);
+            Log.i(TAG, "Received Team JSON " + jsonString);
+            JSONObject jsonBody = new JSONObject(jsonString);
+            JSONArray teamsJson = jsonBody.getJSONArray("teams");
+            parseTeams(teams, teamsJson);
         } catch (IOException ioe) {
             Log.e(TAG, "Failed to fetch items", ioe);
         } catch (JSONException je) {
@@ -90,9 +89,11 @@ public class TeamFetcher {
             team.setTeamLocation(currentTeam.getString(T_LOCATION_NAME));
             team.setTeamWebSite(currentTeam.getString(T_WEBSITE));
 
+            JSONObject divisionObject = currentTeam.getJSONObject(T_DIVISION);
+            String division = divisionObject.getString(T_DIVISION_NAME);
+            team.setTeamDivision(division);
+
             teams.add(team);
         }
     }
-
-
 }
