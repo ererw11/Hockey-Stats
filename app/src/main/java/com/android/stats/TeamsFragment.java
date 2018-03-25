@@ -1,7 +1,6 @@
 package com.android.stats;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -9,19 +8,20 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TeamsFragment extends Fragment implements TeamAdapter.TeamAdapterOnClickHandler {
 
+    TextView copyrightTextView;
     RecyclerView teamRecyclerView;
     private List<Team> teamList = new ArrayList<>();
 
@@ -57,6 +57,7 @@ public class TeamsFragment extends Fragment implements TeamAdapter.TeamAdapterOn
         teamRecyclerView.setHasFixedSize(true);
 
         setUpAdapter();
+
 
         return v;
     }

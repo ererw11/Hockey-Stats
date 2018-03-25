@@ -62,6 +62,7 @@ class TeamFetcher {
     }
 
     List<Team> fetchTeams() {
+
         List<Team> teams = new ArrayList<>();
 
         try {

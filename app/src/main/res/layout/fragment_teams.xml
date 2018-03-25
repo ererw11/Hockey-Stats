@@ -12,4 +12,14 @@
         tools:context="com.android.stats.TeamActivity"
         tools:listitem="@layout/item_view_team"/>
 
+    <TextView
+        android:id="@+id/copyright_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:text="@string/copyright"/>
+
 </FrameLayout>
