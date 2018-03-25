@@ -13,6 +13,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -43,7 +45,7 @@ class TeamFetcher {
                         ": with " +
                         urlSpec);
             }
-            int bytesRead = 0;
+            int bytesRead;
             byte[] buffer = new byte[1024];
             while ((bytesRead = in.read(buffer)) > 0) {
                 out.write(buffer, 0, bytesRead);
@@ -74,6 +76,15 @@ class TeamFetcher {
         } catch (JSONException je) {
             Log.e(TAG, "Failed to parse JSON", je);
         }
+
+        // Sort the teams by the TeamLocation
+        Collections.sort(teams, new Comparator<Team>() {
+            @Override
+            public int compare(Team o1, Team o2) {
+                return o1.getTeamLocation().compareToIgnoreCase(o2.getTeamLocation());
+            }
+        });
+
         return teams;
     }
 
