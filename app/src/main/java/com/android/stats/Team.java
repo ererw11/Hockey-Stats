@@ -9,7 +9,6 @@ public class Team {
     private int TeamId;
     private String TeamName;
     private String TeamLocation;
-    private String TeamWebSite;
     private String TeamDivision;
 
     public int getTeamId() {
@@ -34,14 +33,6 @@ public class Team {
 
     public void setTeamLocation(String teamLocation) {
         TeamLocation = teamLocation;
-    }
-
-    public String getTeamWebSite() {
-        return TeamWebSite;
-    }
-
-    public void setTeamWebSite(String teamWebSite) {
-        TeamWebSite = teamWebSite;
     }
 
     public String getTeamDivision() {

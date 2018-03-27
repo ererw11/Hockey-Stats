@@ -25,7 +25,8 @@ class TeamFetcher {
 
     private static final String TAG = TeamFetcher.class.getSimpleName();
 
-    private static final String TEAMS_URL = "https://statsapi.web.nhl.com/api/v1/teams";
+        private static final String TEAMS_URL =
+                "https://statsapi.web.nhl.com/api/v1/teams";
 
     private final static String T_ID = "id";
     private final static String T_TEAM_NAME = "teamName";
@@ -89,7 +90,7 @@ class TeamFetcher {
         return teams;
     }
 
-    private void parseTeams(List<Team> teams, JSONArray jsonBody) throws IOException, JSONException {
+    private void parseTeams(List<Team> teams, JSONArray jsonBody) throws JSONException {
 
         for (int i = 0; i < jsonBody.length(); i++) {
 
@@ -102,8 +103,7 @@ class TeamFetcher {
             team.setTeamWebSite(currentTeam.getString(T_WEBSITE));
 
             JSONObject divisionObject = currentTeam.getJSONObject(T_DIVISION);
-            String division = divisionObject.getString(T_DIVISION_NAME);
-            team.setTeamDivision(division);
+            team.setTeamDivision(divisionObject.getString(T_DIVISION_NAME));
 
             teams.add(team);
         }

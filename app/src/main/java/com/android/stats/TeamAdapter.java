@@ -1,6 +1,5 @@
 package com.android.stats;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,18 +15,16 @@ import java.util.List;
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 
     private final TeamAdapterOnClickHandler mClickHandler;
-    private List<Team> teamList;
-    private Context mContext;
+    private final List<Team> teamList;
 
-    TeamAdapter(Context context, List<Team> teams, TeamAdapterOnClickHandler clickHandler) {
-        mContext = context;
+    TeamAdapter(List<Team> teams, TeamAdapterOnClickHandler clickHandler) {
         teamList = teams;
         mClickHandler = clickHandler;
     }
 
     @Override
     public TeamAdapter.TeamHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater =  LayoutInflater.from(parent.getContext());
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_view_team, parent, false);
         return new TeamAdapter.TeamHolder(view);
     }
@@ -54,9 +51,9 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
     }
 
     public class TeamHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView teamCityTextView;
-        private TextView teamNameTextView;
-        private TextView teamConferenceTextView;
+        private final TextView teamCityTextView;
+        private final TextView teamNameTextView;
+        private final TextView teamConferenceTextView;
 
         TeamHolder(View itemView) {
             super(itemView);

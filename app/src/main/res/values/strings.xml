@@ -2,4 +2,5 @@
     <string name="app_name">Stats</string>
 
     <string name="copyright">NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.</string>
+    <string name="player_image">Player Image</string>
 </resources>
