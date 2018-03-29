@@ -100,7 +100,6 @@ class TeamFetcher {
             team.setTeamId(currentTeam.getInt(T_ID));
             team.setTeamName(currentTeam.getString(T_TEAM_NAME));
             team.setTeamLocation(currentTeam.getString(T_LOCATION_NAME));
-            team.setTeamWebSite(currentTeam.getString(T_WEBSITE));
 
             JSONObject divisionObject = currentTeam.getJSONObject(T_DIVISION);
             team.setTeamDivision(divisionObject.getString(T_DIVISION_NAME));

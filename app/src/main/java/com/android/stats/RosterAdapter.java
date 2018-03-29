@@ -71,7 +71,7 @@ public class RosterAdapter extends RecyclerView.Adapter<RosterAdapter.RosterHold
         }
 
         void bindView(String id, String name, String number, String position) {
-            Picasso.get().load("https://nhl.bamcontent.com/images/headshots/current/168x168/" + id + ".jpg").into(playerImage);
+            Picasso.get().load("https://nhl.bamcontent.com/images/headshots/current/168x168/" + id + ".jpg").placeholder(R.drawable.no_skater_image).into(playerImage);
             playerNameTextView.setText(name);
             playerNumberTextView.setText(number);
             playerPositionTextView.setText(position);
