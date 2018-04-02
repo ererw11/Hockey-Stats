@@ -9,9 +9,9 @@ public class RosterActivity extends SingleFragmentActivity {
     private final static String EXTRA_TEAM_ID =
             "com.android.stats.team_id";
 
-    public static Intent newRosterIntent(Context packageContext, int Id) {
+    public static Intent newRosterIntent(Context packageContext, int id) {
         Intent newIntent = new Intent(packageContext, RosterActivity.class);
-        newIntent.putExtra(EXTRA_TEAM_ID, Id);
+        newIntent.putExtra(EXTRA_TEAM_ID, id);
         return newIntent;
     }
 
