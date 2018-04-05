@@ -4,7 +4,7 @@ package com.android.stats;
  * Created 3/25/2018.
  */
 
-public class Player {
+class Player {
 
     private int playerId;
     private String playerFullName;

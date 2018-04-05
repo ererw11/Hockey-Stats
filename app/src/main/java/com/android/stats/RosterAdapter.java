@@ -26,8 +26,9 @@ public class RosterAdapter extends RecyclerView.Adapter<RosterAdapter.RosterHold
         mClickHandler = clickHandler;
     }
 
+    @NonNull
     @Override
-    public RosterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RosterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_view_player_roster, parent, false);
         return new RosterAdapter.RosterHolder(view);

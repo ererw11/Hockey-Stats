@@ -4,7 +4,7 @@ package com.android.stats;
  * Created 3/19/2018.
  */
 
-public class Team {
+class Team {
 
     private int TeamId;
     private String TeamName;

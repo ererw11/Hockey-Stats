@@ -1,0 +1,154 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.stats.player_stats.PlayerStatsFragment">
+
+    <ImageView
+        android:id="@+id/player_head_shot"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/player_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/no_skater_image"
+        app:layout_constraintBottom_toBottomOf="@+id/player_team"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45"/>
+
+    <TextView
+        android:id="@+id/player_first_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="First Name"/>
+
+    <TextView
+        android:id="@+id/player_last_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="@+id/player_first_name"
+        app:layout_constraintTop_toBottomOf="@+id/player_first_name"
+        tools:text="Last Name"/>
+
+    <TextView
+        android:id="@+id/player_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/player_last_name"
+        app:layout_constraintTop_toBottomOf="@+id/player_last_name"
+        tools:text="##"/>
+
+    <TextView
+        android:id="@+id/player_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/player_number"
+        app:layout_constraintTop_toBottomOf="@+id/player_number"
+        tools:text="Team Name"/>
+
+    <TextView
+        android:id="@+id/player_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/player_number"
+        app:layout_constraintTop_toBottomOf="@+id/player_last_name"
+        tools:text="Position"/>
+
+    <TextView
+        android:id="@+id/player_games_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/games"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/player_head_shot"/>
+
+    <TextView
+        android:id="@+id/player_games"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/player_games_label"
+        app:layout_constraintTop_toTopOf="@+id/player_games_label"
+        tools:text="##"/>
+
+    <TextView
+        android:id="@+id/player_goals_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/goals"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/player_games_label"/>
+
+    <TextView
+        android:id="@+id/player_goals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/player_goals_label"
+        app:layout_constraintTop_toTopOf="@+id/player_goals_label"
+        tools:text="##"/>
+
+    <TextView
+        android:id="@+id/player_assist_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/assists"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/player_goals_label"/>
+
+    <TextView
+        android:id="@+id/player_assist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/player_assist_label"
+        app:layout_constraintTop_toTopOf="@+id/player_assist_label"
+        tools:text="##"/>
+
+    <TextView
+        android:id="@+id/player_points_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/points"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/player_assist_label"/>
+
+    <TextView
+        android:id="@+id/player_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/player_points_label"
+        app:layout_constraintTop_toTopOf="@+id/player_points_label"
+        tools:text="##"/>
+</android.support.constraint.ConstraintLayout>

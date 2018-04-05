@@ -23,7 +23,7 @@ public class RosterFragment extends Fragment implements RosterAdapter.RosterAdap
 
     private static final String ARG_TEAM_ID =
             "com.android.stats.team_id";
-    RecyclerView rosterRecyclerView;
+    private RecyclerView rosterRecyclerView;
     private String teamId;
     private List<Player> roster = new ArrayList<>();
 

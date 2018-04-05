@@ -21,7 +21,7 @@ import java.util.List;
  * Created 3/25/2018.
  */
 
-public class RosterFetcher {
+class RosterFetcher {
 
     private static final String TAG = RosterFetcher.class.getSimpleName();
 

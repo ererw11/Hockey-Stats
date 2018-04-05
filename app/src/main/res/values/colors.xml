@@ -3,14 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    
-    <color name="ducks_orange">#FC4C02</color>
-    <color name="ducks_metallic_gold">#B09862</color>
-    <color name="ducks_silver">#A4A9AD</color>
-    
-    <color name="coyote_brick_red">#8C2633</color>
-    <color name="coyote_desert_sand">#DDCBA4</color>
-    <color name="coyote_black">@android:color/black</color>
 
 
 </resources>
