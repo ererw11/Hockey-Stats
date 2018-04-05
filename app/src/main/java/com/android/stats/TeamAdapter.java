@@ -1,5 +1,6 @@
 package com.android.stats;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,15 +23,17 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         mClickHandler = clickHandler;
     }
 
+
+    @NonNull
     @Override
-    public TeamAdapter.TeamHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TeamAdapter.TeamHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_view_team, parent, false);
         return new TeamAdapter.TeamHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(TeamAdapter.TeamHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TeamAdapter.TeamHolder holder, int position) {
         Team team = teamList.get(position);
         String teamLocation = team.getTeamLocation();
         String teamName = team.getTeamName();
@@ -67,6 +70,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
             teamCityTextView.setText(teamLocation);
             teamNameTextView.setText(teamName);
             teamConferenceTextView.setText(conference);
+//            teamColorChanger(teamName);
         }
 
         @Override

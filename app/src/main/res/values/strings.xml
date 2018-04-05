@@ -3,7 +3,8 @@
 
     <string name="copyright">NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.</string>
     <string name="player_image">Player Image</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="games">Games</string>
+    <string name="goals">Goals</string>
+    <string name="assists">Assists</string>
+    <string name="points">Points</string>
 </resources>
