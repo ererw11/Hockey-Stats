@@ -19,11 +19,16 @@ import com.android.stats.player_stats.PlayerStatsActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class RosterFragment extends Fragment implements RosterAdapter.RosterAdapterOnClickHandler {
 
     private static final String ARG_TEAM_ID =
             "com.android.stats.team_id";
-    private RecyclerView rosterRecyclerView;
+    @BindView(R.id.roster_recycler_view)
+    RecyclerView rosterRecyclerView;
+
     private String teamId;
     private List<Player> roster = new ArrayList<>();
 
@@ -52,8 +57,7 @@ public class RosterFragment extends Fragment implements RosterAdapter.RosterAdap
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_roster, container, false);
-
-        rosterRecyclerView = v.findViewById(R.id.roster_recycler_view);
+        ButterKnife.bind(this, v);
 
         RecyclerView.LayoutManager layoutManager;
         if (getResources().getConfiguration().smallestScreenWidthDp >= 600 || getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

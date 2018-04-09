@@ -18,9 +18,14 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class TeamsFragment extends Fragment implements TeamAdapter.TeamAdapterOnClickHandler {
 
-    private RecyclerView teamRecyclerView;
+    @BindView(R.id.team_recycler_view)
+    RecyclerView teamRecyclerView;
+
     private List<Team> teamList = new ArrayList<>();
 
     public TeamsFragment() {
@@ -43,7 +48,7 @@ public class TeamsFragment extends Fragment implements TeamAdapter.TeamAdapterOn
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_teams, container, false);
 
-        teamRecyclerView = v.findViewById(R.id.team_recycler_view);
+        ButterKnife.bind(this, v);
 
         RecyclerView.LayoutManager layoutManager;
         if (getResources().getConfiguration().smallestScreenWidthDp >= 600 || getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

@@ -34,39 +34,28 @@ public class PlayerStatsFragment extends Fragment {
             "com.android.stats.player_stats.player_id";
 
     @BindView(R.id.player_head_shot)
-    private
     ImageView player_head_shot;
     @BindView(R.id.player_games)
-    private
     TextView player_games;
     @BindView(R.id.player_goals)
-    private
     TextView player_goals;
     @BindView(R.id.player_points)
-    private
     TextView player_points;
     @BindView(R.id.player_assist)
-    private
     TextView player_assists;
     @BindView(R.id.player_first_name)
-    private
     TextView player_first_name;
     @BindView(R.id.player_last_name)
-    private
     TextView player_last_name;
     @BindView(R.id.player_number)
-    private
     TextView player_number;
     @BindView(R.id.player_team)
-    private
     TextView player_team;
     @BindView(R.id.player_position)
-    private
     TextView player_position;
 
     private String playerId;
     private ApiService mApiService;
-    private PlayerDetails mPlayerDetails;
 
     public PlayerStatsFragment() {
         // Required empty public constructor
