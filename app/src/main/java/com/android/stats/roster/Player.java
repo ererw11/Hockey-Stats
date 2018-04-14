@@ -1,4 +1,4 @@
-package com.android.stats;
+package com.android.stats.roster;
 
 /**
  * Created 3/25/2018.

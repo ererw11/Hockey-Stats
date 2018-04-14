@@ -1,6 +1,8 @@
-package com.android.stats;
+package com.android.stats.teams;
 
 import android.support.v4.app.Fragment;
+
+import com.android.stats.SingleFragmentActivity;
 
 public class TeamActivity extends SingleFragmentActivity {
 

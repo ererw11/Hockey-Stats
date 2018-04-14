@@ -1,4 +1,4 @@
-package com.android.stats;
+package com.android.stats.teams;
 
 /**
  * Created 3/19/2018.

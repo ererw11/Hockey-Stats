@@ -1,4 +1,4 @@
-package com.android.stats;
+package com.android.stats.teams;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,6 +14,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.stats.R;
+import com.android.stats.roster.RosterActivity;
 
 import java.util.ArrayList;
 import java.util.List;

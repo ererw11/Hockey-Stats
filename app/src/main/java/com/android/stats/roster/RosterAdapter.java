@@ -1,4 +1,4 @@
-package com.android.stats;
+package com.android.stats.roster;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.stats.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

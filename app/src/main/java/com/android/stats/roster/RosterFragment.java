@@ -1,4 +1,4 @@
-package com.android.stats;
+package com.android.stats.roster;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.stats.R;
 import com.android.stats.player_stats.PlayerStatsActivity;
 
 import java.util.ArrayList;

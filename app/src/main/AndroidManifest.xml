@@ -14,8 +14,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         android:fullBackupContent="@xml/backup_descriptor">
 
-        <activity android:name=".TeamActivity"
-            android:label="Teams">
+        <activity android:name=".teams.TeamActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -23,12 +22,12 @@
         </activity>
 
         <activity
-            android:name=".RosterActivity"
+            android:name=".roster.RosterActivity"
             android:label="Roster"
-            android:parentActivityName=".TeamActivity">
+            android:parentActivityName=".teams.TeamActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".TeamActivity"/>
+                android:value=".teams.TeamActivity"/>
         </activity>
 
         <activity

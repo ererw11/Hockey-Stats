@@ -1,4 +1,4 @@
-package com.android.stats;
+package com.android.stats.roster;
 
 import android.net.Uri;
 import android.util.Log;
