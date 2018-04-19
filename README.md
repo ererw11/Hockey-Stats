@@ -1,7 +1,7 @@
 # Stats
 A project I am working on using showing the stats of NHL players.  I am using it to learn new technologies that I have not worked with before.  
 
-Includes all 31 current NHL teams. (logos for each team coming soon)
+Includes all 31 current NHL teams.  Currently, I am  working on adding logos for each team.
 </br></br>
 ![teams page](https://user-images.githubusercontent.com/17730061/38966507-3451164e-4348-11e8-9198-7fbce8977026.jpg)
 </br></br>
