@@ -86,6 +86,66 @@ public class Stat_ {
     @SerializedName("powerPlayTimeOnIcePerGame")
     @Expose
     private String powerPlayTimeOnIcePerGame;
+    @SerializedName("ot")
+    @Expose
+    private Integer ot;
+    @SerializedName("shutouts")
+    @Expose
+    private Integer shutouts;
+    @SerializedName("ties")
+    @Expose
+    private Integer ties;
+    @SerializedName("wins")
+    @Expose
+    private Integer wins;
+    @SerializedName("losses")
+    @Expose
+    private Integer losses;
+    @SerializedName("saves")
+    @Expose
+    private Integer saves;
+    @SerializedName("powerPlaySaves")
+    @Expose
+    private Integer powerPlaySaves;
+    @SerializedName("shortHandedSaves")
+    @Expose
+    private Integer shortHandedSaves;
+    @SerializedName("evenSaves")
+    @Expose
+    private Integer evenSaves;
+    @SerializedName("shortHandedShots")
+    @Expose
+    private Integer shortHandedShots;
+    @SerializedName("evenShots")
+    @Expose
+    private Integer evenShots;
+    @SerializedName("powerPlayShots")
+    @Expose
+    private Integer powerPlayShots;
+    @SerializedName("savePercentage")
+    @Expose
+    private Double savePercentage;
+    @SerializedName("goalAgainstAverage")
+    @Expose
+    private Double goalAgainstAverage;
+    @SerializedName("gamesStarted")
+    @Expose
+    private Integer gamesStarted;
+    @SerializedName("shotsAgainst")
+    @Expose
+    private Integer shotsAgainst;
+    @SerializedName("goalsAgainst")
+    @Expose
+    private Integer goalsAgainst;
+    @SerializedName("powerPlaySavePercentage")
+    @Expose
+    private Double powerPlaySavePercentage;
+    @SerializedName("shortHandedSavePercentage")
+    @Expose
+    private Double shortHandedSavePercentage;
+    @SerializedName("evenStrengthSavePercentage")
+    @Expose
+    private Double evenStrengthSavePercentage;
 
     public String getTimeOnIce() {
         return timeOnIce;
@@ -303,4 +363,163 @@ public class Stat_ {
         this.powerPlayTimeOnIcePerGame = powerPlayTimeOnIcePerGame;
     }
 
+    public Integer getOt() {
+        return ot;
+    }
+
+    public void setOt(Integer ot) {
+        this.ot = ot;
+    }
+
+    public Integer getShutouts() {
+        return shutouts;
+    }
+
+    public void setShutouts(Integer shutouts) {
+        this.shutouts = shutouts;
+    }
+
+    public Integer getTies() {
+        return ties;
+    }
+
+    public void setTies(Integer ties) {
+        this.ties = ties;
+    }
+
+    public Integer getWins() {
+        return wins;
+    }
+
+    public void setWins(Integer wins) {
+        this.wins = wins;
+    }
+
+    public Integer getLosses() {
+        return losses;
+    }
+
+    public void setLosses(Integer losses) {
+        this.losses = losses;
+    }
+
+    public Integer getSaves() {
+        return saves;
+    }
+
+    public void setSaves(Integer saves) {
+        this.saves = saves;
+    }
+
+    public Integer getPowerPlaySaves() {
+        return powerPlaySaves;
+    }
+
+    public void setPowerPlaySaves(Integer powerPlaySaves) {
+        this.powerPlaySaves = powerPlaySaves;
+    }
+
+    public Integer getShortHandedSaves() {
+        return shortHandedSaves;
+    }
+
+    public void setShortHandedSaves(Integer shortHandedSaves) {
+        this.shortHandedSaves = shortHandedSaves;
+    }
+
+    public Integer getEvenSaves() {
+        return evenSaves;
+    }
+
+    public void setEvenSaves(Integer evenSaves) {
+        this.evenSaves = evenSaves;
+    }
+
+    public Integer getShortHandedShots() {
+        return shortHandedShots;
+    }
+
+    public void setShortHandedShots(Integer shortHandedShots) {
+        this.shortHandedShots = shortHandedShots;
+    }
+
+    public Integer getEvenShots() {
+        return evenShots;
+    }
+
+    public void setEvenShots(Integer evenShots) {
+        this.evenShots = evenShots;
+    }
+
+    public Integer getPowerPlayShots() {
+        return powerPlayShots;
+    }
+
+    public void setPowerPlayShots(Integer powerPlayShots) {
+        this.powerPlayShots = powerPlayShots;
+    }
+
+    public Double getSavePercentage() {
+        return savePercentage;
+    }
+
+    public void setSavePercentage(Double savePercentage) {
+        this.savePercentage = savePercentage;
+    }
+
+    public Double getGoalAgainstAverage() {
+        return goalAgainstAverage;
+    }
+
+    public void setGoalAgainstAverage(Double goalAgainstAverage) {
+        this.goalAgainstAverage = goalAgainstAverage;
+    }
+
+    public Integer getGamesStarted() {
+        return gamesStarted;
+    }
+
+    public void setGamesStarted(Integer gamesStarted) {
+        this.gamesStarted = gamesStarted;
+    }
+
+    public Integer getShotsAgainst() {
+        return shotsAgainst;
+    }
+
+    public void setShotsAgainst(Integer shotsAgainst) {
+        this.shotsAgainst = shotsAgainst;
+    }
+
+    public Integer getGoalsAgainst() {
+        return goalsAgainst;
+    }
+
+    public void setGoalsAgainst(Integer goalsAgainst) {
+        this.goalsAgainst = goalsAgainst;
+    }
+
+    public Double getPowerPlaySavePercentage() {
+        return powerPlaySavePercentage;
+    }
+
+    public void setPowerPlaySavePercentage(Double powerPlaySavePercentage) {
+        this.powerPlaySavePercentage = powerPlaySavePercentage;
+    }
+
+    public Double getShortHandedSavePercentage() {
+        return shortHandedSavePercentage;
+    }
+
+    public void setShortHandedSavePercentage(Double shortHandedSavePercentage) {
+        this.shortHandedSavePercentage = shortHandedSavePercentage;
+    }
+
+    public Double getEvenStrengthSavePercentage() {
+        return evenStrengthSavePercentage;
+    }
+
+    public void setEvenStrengthSavePercentage(Double evenStrengthSavePercentage) {
+        this.evenStrengthSavePercentage = evenStrengthSavePercentage;
+    }
 }
