@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.stats.ApiService;
+import com.android.stats.ApiUtils;
 import com.android.stats.R;
-import com.android.stats.player_stats.player_details.Person;
-import com.android.stats.player_stats.player_details.PlayerDetails;
+import com.android.stats.player_stats.skater_details.Person;
+import com.android.stats.player_stats.skater_details.PlayerDetails;
 import com.android.stats.player_stats.stats.PlayerStats;
 import com.android.stats.player_stats.stats.Split;
 import com.android.stats.player_stats.stats.Stat;
@@ -76,7 +78,6 @@ public class PlayerStatsFragment extends Fragment {
         playerId = getArguments().getString(ARG_PLAYER_ID);
 
         mApiService = ApiUtils.getApiService();
-
     }
 
     @Override
@@ -86,11 +87,12 @@ public class PlayerStatsFragment extends Fragment {
         ButterKnife.bind(this, v);
 
         Picasso.get()
-                .load("https://nhl.bamcontent.com/images/headshots/current/168x168/" +
-                        playerId + ".jpg")
+                .load(String.format("%s%s%s", getString(R.string.nhl_head_shot_url), playerId, ".jpg"))
+                .placeholder(R.drawable.no_skater_image)
                 .into(player_head_shot);
         loadPlayerDetails(playerId);
-        loadPlayerStats(playerId);
+
+//        loadPlayerStats(playerId);
 
         return v;
     }
@@ -99,7 +101,7 @@ public class PlayerStatsFragment extends Fragment {
         mApiService.getPlayerDetails(playerId).enqueue(new Callback<PlayerDetails>() {
             @Override
             public void onResponse(@NonNull Call<PlayerDetails> call, @NonNull Response<PlayerDetails> response) {
-                Log.d(TAG, "Player details successful");
+                Log.d(TAG, getString(R.string.player_details_successful));
                 bindPlayerDetails(response.body());
             }
 
@@ -120,13 +122,35 @@ public class PlayerStatsFragment extends Fragment {
         player_position.setText(person.getPrimaryPosition().getName());
         player_team.setText(person.getCurrentTeam().getName());
 
+        // Load Goalie PlayerStats
+//        if (person.getPrimaryPosition().getType().equals("Goalie")) {
+//            loadGoalieStats(playerId);
+//        } else {
+        // Load Player PlayerStats
+//        }
+
     }
+
+//    private void loadGoalieStats(String playerId) {
+//        mApiService.getPlayerStat(playerId).enqueue(new Callback<PlayerStats>() {
+//            @Override
+//            public void onResponse(Call<PlayerStats> call, Response<PlayerStats> response) {
+//                Log.d(TAG, getString(R.string.goalie_stats_successful));
+//                bindGoalieStats(response.body());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PlayerStats> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 
     private void loadPlayerStats(String playerId) {
         mApiService.getPlayerStat(playerId).enqueue(new Callback<PlayerStats>() {
             @Override
             public void onResponse(@NonNull Call<PlayerStats> call, @NonNull Response<PlayerStats> response) {
-                Log.d(TAG, "Player stats successful");
+                Log.d(TAG, getString(R.string.player_stats_successful));
                 bindPlayerStats(response.body());
             }
 
@@ -137,9 +161,11 @@ public class PlayerStatsFragment extends Fragment {
         });
     }
 
+//    private void bindGoalieStats()
+
     private void bindPlayerStats(PlayerStats playerStatsResponse) {
-        List<Stat> playerStatsList = playerStatsResponse.getStats();
-        List<Split> splits= playerStatsList.get(0).getSplits();
+        List<Stat> statsList = playerStatsResponse.getStats();
+        List<Split> splits = statsList.get(0).getSplits();
         Stat_ playerStats = splits.get(0).getStat();
 
         player_games.setText(playerStats.getGames().toString());

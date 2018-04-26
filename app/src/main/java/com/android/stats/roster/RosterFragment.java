@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import com.android.stats.R;
 import com.android.stats.player_stats.PlayerStatsActivity;
 
@@ -82,7 +83,9 @@ public class RosterFragment extends Fragment implements RosterAdapter.RosterAdap
 
     @Override
     public void onClick(Player player) {
-        Intent newIntent = PlayerStatsActivity.newPlayerStatsIntent(getContext(), Integer.toString(player.getPlayerId()));
+        Intent newIntent = PlayerStatsActivity.newPlayerStatsIntent(
+                getContext(),
+                Integer.toString(player.getPlayerId()));
         startActivity(newIntent);
     }
 

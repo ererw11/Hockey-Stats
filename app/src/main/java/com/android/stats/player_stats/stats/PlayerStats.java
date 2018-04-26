@@ -10,9 +10,9 @@ public class PlayerStats {
     @SerializedName("copyright")
     @Expose
     private String copyright;
-    @SerializedName("stats")
+    @SerializedName("mStats")
     @Expose
-    private List<Stat> stats = null;
+    private List<Stat> mStats = null;
 
     public String getCopyright() {
         return copyright;
@@ -23,11 +23,11 @@ public class PlayerStats {
     }
 
     public List<Stat> getStats() {
-        return stats;
+        return mStats;
     }
 
     public void setStats(List<Stat> stats) {
-        this.stats = stats;
+        this.mStats = stats;
     }
 
 }

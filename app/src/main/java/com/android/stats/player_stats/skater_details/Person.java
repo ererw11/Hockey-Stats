@@ -1,5 +1,4 @@
-
-package com.android.stats.player_stats.player_details;
+package com.android.stats.player_stats.skater_details;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

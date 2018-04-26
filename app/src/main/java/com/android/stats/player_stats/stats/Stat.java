@@ -10,9 +10,9 @@ public class Stat {
     @SerializedName("type")
     @Expose
     private Type type;
-    @SerializedName("splits")
+    @SerializedName("mSplits")
     @Expose
-    private List<Split> splits = null;
+    private List<Split> mSplits = null;
 
     public Type getType() {
         return type;
@@ -23,11 +23,11 @@ public class Stat {
     }
 
     public List<Split> getSplits() {
-        return splits;
+        return mSplits;
     }
 
     public void setSplits(List<Split> splits) {
-        this.splits = splits;
+        this.mSplits = splits;
     }
 
 }

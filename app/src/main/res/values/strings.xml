@@ -7,4 +7,8 @@
     <string name="goals">Goals</string>
     <string name="assists">Assists</string>
     <string name="points">Points</string>
+    <string name="nhl_head_shot_url">https://nhl.bamcontent.com/images/headshots/current/168x168/</string>
+    <string name="player_details_successful">Player details successful</string>
+    <string name="player_stats_successful">Player stats successful</string>
+    <string name="goalie_stats_successful">Goalie stats successful</string>
 </resources>

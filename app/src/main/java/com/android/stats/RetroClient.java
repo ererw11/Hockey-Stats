@@ -1,4 +1,4 @@
-package com.android.stats.player_stats;
+package com.android.stats;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

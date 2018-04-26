@@ -1,6 +1,6 @@
-package com.android.stats.player_stats;
+package com.android.stats;
 
-import com.android.stats.player_stats.player_details.PlayerDetails;
+import com.android.stats.player_stats.skater_details.PlayerDetails;
 import com.android.stats.player_stats.stats.PlayerStats;
 
 import retrofit2.Call;

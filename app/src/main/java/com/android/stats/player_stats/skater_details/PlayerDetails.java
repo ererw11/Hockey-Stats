@@ -1,9 +1,9 @@
+package com.android.stats.player_stats.skater_details;
 
-package com.android.stats.player_stats.player_details;
-
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class PlayerDetails {
 
