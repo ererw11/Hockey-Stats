@@ -39,12 +39,6 @@ public class PlayerStatsFragment extends Fragment {
     ImageView player_head_shot;
     @BindView(R.id.player_games)
     TextView player_games;
-    @BindView(R.id.player_goals)
-    TextView player_goals;
-    @BindView(R.id.player_points)
-    TextView player_points;
-    @BindView(R.id.player_assist)
-    TextView player_assists;
     @BindView(R.id.player_first_name)
     TextView player_first_name;
     @BindView(R.id.player_last_name)
@@ -61,6 +55,28 @@ public class PlayerStatsFragment extends Fragment {
     TextView player_stat_label_two;
     @BindView(R.id.player_stat_three_label)
     TextView player_stat_label_three;
+    @BindView(R.id.player_stat_four_label)
+    TextView player_stat_label_four;
+    @BindView(R.id.player_stat_five_label)
+    TextView player_stat_label_five;
+    @BindView(R.id.player_stat_six_label)
+    TextView player_stat_label_six;
+    @BindView(R.id.player_stat_seven_label)
+    TextView player_stat_label_seven;
+    @BindView(R.id.player_stat_one)
+    TextView player_stats_one;
+    @BindView(R.id.player_stat_two)
+    TextView player_stats_two;
+    @BindView(R.id.player_stat_three)
+    TextView player_stats_three;
+    @BindView(R.id.player_stat_four)
+    TextView player_stats_four;
+    @BindView(R.id.player_stat_five)
+    TextView player_stats_five;
+    @BindView(R.id.player_stat_six)
+    TextView player_stats_six;
+    @BindView(R.id.player_stat_seven)
+    TextView player_stats_seven;
 
     private String playerId;
     private ApiService mApiService;
@@ -152,33 +168,49 @@ public class PlayerStatsFragment extends Fragment {
             // This player is a skater
             addSkaterStatLabels();
             player_games.setText(playerStats.getGames().toString());
-            player_goals.setText(playerStats.getGoals().toString());
-            player_assists.setText(playerStats.getAssists().toString());
+            player_stats_one.setText(playerStats.getGoals().toString());
+            player_stats_two.setText(playerStats.getAssists().toString());
             int points = playerStats.getGoals() + playerStats.getAssists();
-            player_points.setText(Integer.toString(points));
+            player_stats_three.setText(Integer.toString(points));
+            player_stats_four.setText(playerStats.getPlusMinus().toString());
+            player_stats_five.setText(playerStats.getPim().toString());
+            player_stats_six.setText(playerStats.getPowerPlayGoals().toString());
+            player_stats_seven.setText(playerStats.getPowerPlayPoints().toString());
         }
 
         if (playerStats.getWins() != null && playerStats.getSavePercentage() != null) {
             // This player is a goalie
             addGoalieStatLabels();
             player_games.setText(playerStats.getGames().toString());
-            player_goals.setText(playerStats.getWins().toString());
-            player_assists.setText(playerStats.getLosses().toString());
-            player_points.setText(playerStats.getSavePercentage().toString());
+            player_stats_one.setText(playerStats.getWins().toString());
+            player_stats_two.setText(playerStats.getLosses().toString());
+            player_stats_three.setText(playerStats.getSavePercentage().toString());
+            player_stats_four.setText(playerStats.getShotsAgainst().toString());
+            player_stats_five.setText(playerStats.getGoalsAgainst().toString());
+            player_stats_six.setText(playerStats.getGoalAgainstAverage().toString());
+            player_stats_seven.setText(playerStats.getSaves().toString());
 
         }
-    }
-
-    private void addGoalieStatLabels() {
-        player_stat_label_one.setText(R.string.wins);
-        player_stat_label_two.setText(R.string.loss);
-        player_stat_label_three.setText(R.string.save_percentage);
     }
 
     private void addSkaterStatLabels() {
         player_stat_label_one.setText(R.string.goals);
         player_stat_label_two.setText(R.string.assists);
         player_stat_label_three.setText(R.string.points);
+        player_stat_label_four.setText("+/-");
+        player_stat_label_five.setText("PIM");
+        player_stat_label_six.setText("PPG");
+        player_stat_label_seven.setText("PPP");
+    }
+
+    private void addGoalieStatLabels() {
+        player_stat_label_one.setText(R.string.wins);
+        player_stat_label_two.setText(R.string.loss);
+        player_stat_label_three.setText(R.string.save_percentage);
+        player_stat_label_four.setText("SA");
+        player_stat_label_five.setText("GA");
+        player_stat_label_six.setText("GAA");
+        player_stat_label_seven.setText("Saves");
     }
 
     private Stat_ getStat_(PlayerStats playerStatsResponse) {
