@@ -55,6 +55,12 @@ public class PlayerStatsFragment extends Fragment {
     TextView player_team;
     @BindView(R.id.player_position)
     TextView player_position;
+    @BindView(R.id.player_stat_one_label)
+    TextView player_stat_label_one;
+    @BindView(R.id.player_stat_two_label)
+    TextView player_stat_label_two;
+    @BindView(R.id.player_stat_three_label)
+    TextView player_stat_label_three;
 
     private String playerId;
     private ApiService mApiService;
@@ -92,7 +98,7 @@ public class PlayerStatsFragment extends Fragment {
                 .into(player_head_shot);
         loadPlayerDetails(playerId);
 
-//        loadPlayerStats(playerId);
+        loadPlayerStats(playerId);
 
         return v;
     }
@@ -121,30 +127,8 @@ public class PlayerStatsFragment extends Fragment {
         player_number.setText(person.getPrimaryNumber());
         player_position.setText(person.getPrimaryPosition().getName());
         player_team.setText(person.getCurrentTeam().getName());
-
-        // Load Goalie PlayerStats
-//        if (person.getPrimaryPosition().getType().equals("Goalie")) {
-//            loadGoalieStats(playerId);
-//        } else {
-        // Load Player PlayerStats
-//        }
-
     }
 
-//    private void loadGoalieStats(String playerId) {
-//        mApiService.getPlayerStat(playerId).enqueue(new Callback<PlayerStats>() {
-//            @Override
-//            public void onResponse(Call<PlayerStats> call, Response<PlayerStats> response) {
-//                Log.d(TAG, getString(R.string.goalie_stats_successful));
-//                bindGoalieStats(response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<PlayerStats> call, Throwable t) {
-//
-//            }
-//        });
-//    }
 
     private void loadPlayerStats(String playerId) {
         mApiService.getPlayerStat(playerId).enqueue(new Callback<PlayerStats>() {
@@ -161,17 +145,45 @@ public class PlayerStatsFragment extends Fragment {
         });
     }
 
-//    private void bindGoalieStats()
-
     private void bindPlayerStats(PlayerStats playerStatsResponse) {
+        Stat_ playerStats = getStat_(playerStatsResponse);
+
+        if (playerStats.getGoals() != null && playerStats.getAssists() != null) {
+            // This player is a skater
+            addSkaterStatLabels();
+            player_games.setText(playerStats.getGames().toString());
+            player_goals.setText(playerStats.getGoals().toString());
+            player_assists.setText(playerStats.getAssists().toString());
+            int points = playerStats.getGoals() + playerStats.getAssists();
+            player_points.setText(Integer.toString(points));
+        }
+
+        if (playerStats.getWins() != null && playerStats.getSavePercentage() != null) {
+            // This player is a goalie
+            addGoalieStatLabels();
+            player_games.setText(playerStats.getGames().toString());
+            player_goals.setText(playerStats.getWins().toString());
+            player_assists.setText(playerStats.getLosses().toString());
+            player_points.setText(playerStats.getSavePercentage().toString());
+
+        }
+    }
+
+    private void addGoalieStatLabels() {
+        player_stat_label_one.setText(R.string.wins);
+        player_stat_label_two.setText(R.string.loss);
+        player_stat_label_three.setText(R.string.save_percentage);
+    }
+
+    private void addSkaterStatLabels() {
+        player_stat_label_one.setText(R.string.goals);
+        player_stat_label_two.setText(R.string.assists);
+        player_stat_label_three.setText(R.string.points);
+    }
+
+    private Stat_ getStat_(PlayerStats playerStatsResponse) {
         List<Stat> statsList = playerStatsResponse.getStats();
         List<Split> splits = statsList.get(0).getSplits();
-        Stat_ playerStats = splits.get(0).getStat();
-
-        player_games.setText(playerStats.getGames().toString());
-        player_goals.setText(playerStats.getGoals().toString());
-        player_assists.setText(playerStats.getAssists().toString());
-        int points = playerStats.getGoals() + playerStats.getAssists();
-        player_points.setText(Integer.toString(points));
+        return splits.get(0).getStat();
     }
 }

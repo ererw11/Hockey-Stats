@@ -1,18 +1,17 @@
 package com.android.stats.player_stats.stats;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class Stat {
 
     @SerializedName("type")
     @Expose
     private Type type;
-    @SerializedName("mSplits")
+    @SerializedName("splits")
     @Expose
-    private List<Split> mSplits = null;
+    private List<Split> splits = null;
 
     public Type getType() {
         return type;
@@ -23,11 +22,11 @@ public class Stat {
     }
 
     public List<Split> getSplits() {
-        return mSplits;
+        return splits;
     }
 
     public void setSplits(List<Split> splits) {
-        this.mSplits = splits;
+        this.splits = splits;
     }
 
 }

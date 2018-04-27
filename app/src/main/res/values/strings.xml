@@ -11,4 +11,7 @@
     <string name="player_details_successful">Player details successful</string>
     <string name="player_stats_successful">Player stats successful</string>
     <string name="goalie_stats_successful">Goalie stats successful</string>
+    <string name="wins">Wins</string>
+    <string name="loss">Loss</string>
+    <string name="save_percentage">Save %</string>
 </resources>

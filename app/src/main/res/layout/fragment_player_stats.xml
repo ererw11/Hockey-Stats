@@ -96,60 +96,60 @@
         tools:text="##"/>
 
     <TextView
-        android:id="@+id/player_goals_label"
+        android:id="@+id/player_stat_one_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/goals"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/player_games_label"/>
+        app:layout_constraintTop_toBottomOf="@+id/player_games_label"
+        tools:text="goals/losses"/>
 
     <TextView
         android:id="@+id/player_goals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintStart_toEndOf="@+id/player_goals_label"
-        app:layout_constraintTop_toTopOf="@+id/player_goals_label"
+        app:layout_constraintStart_toEndOf="@+id/player_stat_one_label"
+        app:layout_constraintTop_toTopOf="@+id/player_stat_one_label"
         tools:text="##"/>
 
     <TextView
-        android:id="@+id/player_assist_label"
+        android:id="@+id/player_stat_two_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/assists"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/player_goals_label"/>
+        app:layout_constraintTop_toBottomOf="@+id/player_stat_one_label"
+        tools:text="assists/losses"/>
 
     <TextView
         android:id="@+id/player_assist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintStart_toEndOf="@+id/player_assist_label"
-        app:layout_constraintTop_toTopOf="@+id/player_assist_label"
+        app:layout_constraintStart_toEndOf="@+id/player_stat_two_label"
+        app:layout_constraintTop_toTopOf="@+id/player_stat_two_label"
         tools:text="##"/>
 
     <TextView
-        android:id="@+id/player_points_label"
+        android:id="@+id/player_stat_three_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/points"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/player_assist_label"/>
+        app:layout_constraintTop_toBottomOf="@+id/player_stat_two_label"
+        tools:text="points/save%"/>
 
     <TextView
         android:id="@+id/player_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintStart_toEndOf="@+id/player_points_label"
-        app:layout_constraintTop_toTopOf="@+id/player_points_label"
+        app:layout_constraintStart_toEndOf="@+id/player_stat_three_label"
+        app:layout_constraintTop_toTopOf="@+id/player_stat_three_label"
         tools:text="##"/>
 
     <android.support.v7.widget.RecyclerView
@@ -163,5 +163,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player_points_label"/>
+        app:layout_constraintTop_toBottomOf="@+id/player_stat_three_label"/>
 </android.support.constraint.ConstraintLayout>
