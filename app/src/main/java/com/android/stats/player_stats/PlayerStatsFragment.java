@@ -36,46 +36,67 @@ public class PlayerStatsFragment extends Fragment {
             "com.android.stats.player_stats.player_id";
 
     @BindView(R.id.player_head_shot)
+    private
     ImageView player_head_shot;
     @BindView(R.id.player_games)
+    private
     TextView player_games;
     @BindView(R.id.player_first_name)
+    private
     TextView player_first_name;
     @BindView(R.id.player_last_name)
+    private
     TextView player_last_name;
     @BindView(R.id.player_number)
+    private
     TextView player_number;
     @BindView(R.id.player_team)
+    private
     TextView player_team;
     @BindView(R.id.player_position)
+    private
     TextView player_position;
     @BindView(R.id.player_stat_one_label)
+    private
     TextView player_stat_label_one;
     @BindView(R.id.player_stat_two_label)
+    private
     TextView player_stat_label_two;
     @BindView(R.id.player_stat_three_label)
+    private
     TextView player_stat_label_three;
     @BindView(R.id.player_stat_four_label)
+    private
     TextView player_stat_label_four;
     @BindView(R.id.player_stat_five_label)
+    private
     TextView player_stat_label_five;
     @BindView(R.id.player_stat_six_label)
+    private
     TextView player_stat_label_six;
     @BindView(R.id.player_stat_seven_label)
+    private
     TextView player_stat_label_seven;
     @BindView(R.id.player_stat_one)
+    private
     TextView player_stats_one;
     @BindView(R.id.player_stat_two)
+    private
     TextView player_stats_two;
     @BindView(R.id.player_stat_three)
+    private
     TextView player_stats_three;
     @BindView(R.id.player_stat_four)
+    private
     TextView player_stats_four;
     @BindView(R.id.player_stat_five)
+    private
     TextView player_stats_five;
     @BindView(R.id.player_stat_six)
+    private
     TextView player_stats_six;
     @BindView(R.id.player_stat_seven)
+    private
     TextView player_stats_seven;
 
     private String playerId;
