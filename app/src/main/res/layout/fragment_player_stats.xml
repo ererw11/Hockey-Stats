@@ -332,9 +332,146 @@
                 app:layout_constraintTop_toBottomOf="@+id/player_stat_six"
                 tools:text="##"/>
 
+            <TextView
+                android:id="@+id/player_stat_eight_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/player_stat_nine_label"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="gwg / s%"/>
+
+            <TextView
+                android:id="@+id/player_stat_nine_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/player_stat_ten_label"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/player_stat_eight_label"
+                tools:text="otg/so"/>
+
+            <TextView
+                android:id="@+id/player_stat_ten_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/player_stat_eleven_label"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/player_stat_nine_label"
+                tools:text="s/mins"/>
+
+            <TextView
+                android:id="@+id/player_stat_eleven_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/player_stat_ten_label"
+                tools:text="s%"/>
+
+            <TextView
+                android:id="@+id/player_stat_eight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/player_stat_ten"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="##"/>
+
+            <TextView
+                android:id="@+id/player_stat_nine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/player_stat_eleven"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/player_stat_ten"
+                tools:text="##"/>
+
+            <TextView
+                android:id="@+id/player_stat_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/player_stat_nine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/player_stat_eight"
+                tools:text="##"/>
+
+            <TextView
+                android:id="@+id/player_stat_eleven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/player_stat_nine"
+                tools:text="##"/>
+
+
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
 
+    <!--Player Stats Game Logs-->
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:padding="4dp"
+        app:cardCornerRadius="3dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/player_stat_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:padding="4dp"
+        app:cardCornerRadius="3dp">
+
+        <Button
+            android:id="@+id/player_stat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"/>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

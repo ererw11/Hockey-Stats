@@ -7,8 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.stats.ApiService;
 import com.android.stats.ApiUtils;
@@ -36,68 +38,68 @@ public class PlayerStatsFragment extends Fragment {
             "com.android.stats.player_stats.player_id";
 
     @BindView(R.id.player_head_shot)
-    private
     ImageView player_head_shot;
     @BindView(R.id.player_games)
-    private
     TextView player_games;
     @BindView(R.id.player_first_name)
-    private
     TextView player_first_name;
     @BindView(R.id.player_last_name)
-    private
     TextView player_last_name;
     @BindView(R.id.player_number)
-    private
     TextView player_number;
     @BindView(R.id.player_team)
-    private
     TextView player_team;
     @BindView(R.id.player_position)
-    private
     TextView player_position;
+
     @BindView(R.id.player_stat_one_label)
-    private
     TextView player_stat_label_one;
     @BindView(R.id.player_stat_two_label)
-    private
     TextView player_stat_label_two;
     @BindView(R.id.player_stat_three_label)
-    private
     TextView player_stat_label_three;
     @BindView(R.id.player_stat_four_label)
-    private
     TextView player_stat_label_four;
     @BindView(R.id.player_stat_five_label)
-    private
     TextView player_stat_label_five;
     @BindView(R.id.player_stat_six_label)
-    private
     TextView player_stat_label_six;
     @BindView(R.id.player_stat_seven_label)
-    private
     TextView player_stat_label_seven;
+    @BindView(R.id.player_stat_eight_label)
+    TextView player_stat_label_eight;
+    @BindView(R.id.player_stat_nine_label)
+    TextView player_stat_label_nine;
+    @BindView(R.id.player_stat_ten_label)
+    TextView player_stat_label_ten;
+    @BindView(R.id.player_stat_eleven_label)
+    TextView player_stat_label_eleven;
+
     @BindView(R.id.player_stat_one)
-    private
     TextView player_stats_one;
     @BindView(R.id.player_stat_two)
-    private
     TextView player_stats_two;
     @BindView(R.id.player_stat_three)
-    private
     TextView player_stats_three;
     @BindView(R.id.player_stat_four)
-    private
     TextView player_stats_four;
     @BindView(R.id.player_stat_five)
-    private
     TextView player_stats_five;
     @BindView(R.id.player_stat_six)
-    private
     TextView player_stats_six;
     @BindView(R.id.player_stat_seven)
-    private
     TextView player_stats_seven;
+    @BindView(R.id.player_stat_eight)
+    TextView player_stats_eight;
+    @BindView(R.id.player_stat_ten)
+    TextView player_stats_nine;
+    @BindView(R.id.player_stat_nine)
+    TextView player_stats_ten;
+    @BindView(R.id.player_stat_eleven)
+    TextView player_stats_eleven;
+
+    @BindView(R.id.player_stat_button)
+    Button player_stat_button;
 
     private String playerId;
     private ApiService mApiService;
@@ -136,6 +138,13 @@ public class PlayerStatsFragment extends Fragment {
         loadPlayerDetails(playerId);
 
         loadPlayerStats(playerId);
+
+        player_stat_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "This button is not for you yet", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return v;
     }
@@ -197,6 +206,10 @@ public class PlayerStatsFragment extends Fragment {
             player_stats_five.setText(playerStats.getPim().toString());
             player_stats_six.setText(playerStats.getPowerPlayGoals().toString());
             player_stats_seven.setText(playerStats.getPowerPlayPoints().toString());
+            player_stats_eight.setText(playerStats.getGameWinningGoals().toString());
+            player_stats_nine.setText(playerStats.getOverTimeGoals().toString());
+            player_stats_ten.setText(playerStats.getShots().toString());
+            player_stats_eleven.setText(playerStats.getShotPct().toString());
         }
 
         if (playerStats.getWins() != null && playerStats.getSavePercentage() != null) {
@@ -210,7 +223,10 @@ public class PlayerStatsFragment extends Fragment {
             player_stats_five.setText(playerStats.getGoalsAgainst().toString());
             player_stats_six.setText(playerStats.getGoalAgainstAverage().toString());
             player_stats_seven.setText(playerStats.getSaves().toString());
-
+            player_stats_eight.setText(playerStats.getSavePercentage().toString());
+            player_stats_nine.setText(playerStats.getShutouts().toString());
+            player_stats_ten.setText(playerStats.getTimeOnIce().toString());
+            player_stats_eleven.setText(" ");
         }
     }
 
@@ -222,6 +238,10 @@ public class PlayerStatsFragment extends Fragment {
         player_stat_label_five.setText("PIM");
         player_stat_label_six.setText("PPG");
         player_stat_label_seven.setText("PPP");
+        player_stat_label_eight.setText("GWG");
+        player_stat_label_nine.setText("OTG");
+        player_stat_label_ten.setText("S");
+        player_stat_label_eleven.setText("S%");
     }
 
     private void addGoalieStatLabels() {
@@ -232,6 +252,10 @@ public class PlayerStatsFragment extends Fragment {
         player_stat_label_five.setText("GA");
         player_stat_label_six.setText("GAA");
         player_stat_label_seven.setText("Saves");
+        player_stat_label_eight.setText("S%");
+        player_stat_label_nine.setText("SO");
+        player_stat_label_ten.setText("MINS");
+        player_stat_label_eleven.setText(" ");
     }
 
     private Stat_ getStat_(PlayerStats playerStatsResponse) {

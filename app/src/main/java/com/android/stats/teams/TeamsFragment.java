@@ -27,7 +27,6 @@ import butterknife.ButterKnife;
 public class TeamsFragment extends Fragment implements TeamAdapter.TeamAdapterOnClickHandler {
 
     @BindView(R.id.team_recycler_view)
-    private
     RecyclerView teamRecyclerView;
 
     private List<Team> teamList = new ArrayList<>();
