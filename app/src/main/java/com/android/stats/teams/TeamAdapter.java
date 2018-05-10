@@ -12,10 +12,6 @@ import com.android.stats.R;
 
 import java.util.List;
 
-/**
- * Created 3/19/2018.
- */
-
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 
     private final TeamAdapterOnClickHandler mClickHandler;
@@ -25,7 +21,6 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         teamList = teams;
         mClickHandler = clickHandler;
     }
-
 
     @NonNull
     @Override
@@ -73,7 +68,6 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
             teamCityTextView.setText(teamLocation);
             teamNameTextView.setText(teamName);
             teamConferenceTextView.setText(conference);
-//            teamColorChanger(teamName);
         }
 
         @Override
