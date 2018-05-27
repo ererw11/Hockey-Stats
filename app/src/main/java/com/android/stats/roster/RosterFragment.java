@@ -5,31 +5,28 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 import com.android.stats.R;
 import com.android.stats.player_stats.PlayerStatsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class RosterFragment extends Fragment implements RosterAdapter.RosterAdapterOnClickHandler {
 
     private static final String ARG_TEAM_ID =
             "com.android.stats.team_id";
-    @BindView(R.id.roster_recycler_view)
-    RecyclerView rosterRecyclerView;
+    private RecyclerView rosterRecyclerView;
 
     private String teamId;
     private List<Player> roster = new ArrayList<>();
@@ -51,7 +48,7 @@ public class RosterFragment extends Fragment implements RosterAdapter.RosterAdap
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        teamId = getArguments().getString(ARG_TEAM_ID);
+        teamId = Objects.requireNonNull(getArguments()).getString(ARG_TEAM_ID);
         new FetchRosterTask().execute();
     }
 
@@ -59,7 +56,7 @@ public class RosterFragment extends Fragment implements RosterAdapter.RosterAdap
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_roster, container, false);
-        ButterKnife.bind(this, v);
+        rosterRecyclerView = v.findViewById(R.id.team_recycler_view);
 
         RecyclerView.LayoutManager layoutManager;
         if (getResources().getConfiguration().smallestScreenWidthDp >= 600 || getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

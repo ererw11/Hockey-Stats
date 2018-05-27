@@ -1,8 +1,6 @@
 package com.android.stats.player_stats;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +22,10 @@ import com.android.stats.player_stats.stats.Stat_;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Objects;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,69 +36,39 @@ public class PlayerStatsFragment extends Fragment {
     private static final String ARG_PLAYER_ID =
             "com.android.stats.player_stats.player_id";
 
-    @BindView(R.id.player_head_shot)
-    ImageView player_head_shot;
-    @BindView(R.id.player_games)
-    TextView player_games;
-    @BindView(R.id.player_first_name)
-    TextView player_first_name;
-    @BindView(R.id.player_last_name)
-    TextView player_last_name;
-    @BindView(R.id.player_number)
-    TextView player_number;
-    @BindView(R.id.player_team)
-    TextView player_team;
-    @BindView(R.id.player_position)
-    TextView player_position;
+    private ImageView player_head_shot;
+    private TextView player_games;
+    private TextView player_first_name;
+    private TextView player_last_name;
+    private TextView player_number;
+    private TextView player_team;
+    private TextView player_position;
 
-    @BindView(R.id.player_stat_one_label)
-    TextView player_stat_label_one;
-    @BindView(R.id.player_stat_two_label)
-    TextView player_stat_label_two;
-    @BindView(R.id.player_stat_three_label)
-    TextView player_stat_label_three;
-    @BindView(R.id.player_stat_four_label)
-    TextView player_stat_label_four;
-    @BindView(R.id.player_stat_five_label)
-    TextView player_stat_label_five;
-    @BindView(R.id.player_stat_six_label)
-    TextView player_stat_label_six;
-    @BindView(R.id.player_stat_seven_label)
-    TextView player_stat_label_seven;
-    @BindView(R.id.player_stat_eight_label)
-    TextView player_stat_label_eight;
-    @BindView(R.id.player_stat_nine_label)
-    TextView player_stat_label_nine;
-    @BindView(R.id.player_stat_ten_label)
-    TextView player_stat_label_ten;
-    @BindView(R.id.player_stat_eleven_label)
-    TextView player_stat_label_eleven;
+    private TextView player_stat_label_one;
+    private TextView player_stat_label_two;
+    private TextView player_stat_label_three;
+    private TextView player_stat_label_four;
+    private TextView player_stat_label_five;
+    private TextView player_stat_label_six;
+    private TextView player_stat_label_seven;
+    private TextView player_stat_label_eight;
+    private TextView player_stat_label_nine;
+    private TextView player_stat_label_ten;
+    private TextView player_stat_label_eleven;
 
-    @BindView(R.id.player_stat_one)
-    TextView player_stats_one;
-    @BindView(R.id.player_stat_two)
-    TextView player_stats_two;
-    @BindView(R.id.player_stat_three)
-    TextView player_stats_three;
-    @BindView(R.id.player_stat_four)
-    TextView player_stats_four;
-    @BindView(R.id.player_stat_five)
-    TextView player_stats_five;
-    @BindView(R.id.player_stat_six)
-    TextView player_stats_six;
-    @BindView(R.id.player_stat_seven)
-    TextView player_stats_seven;
-    @BindView(R.id.player_stat_eight)
-    TextView player_stats_eight;
-    @BindView(R.id.player_stat_ten)
-    TextView player_stats_nine;
-    @BindView(R.id.player_stat_nine)
-    TextView player_stats_ten;
-    @BindView(R.id.player_stat_eleven)
-    TextView player_stats_eleven;
+    private TextView player_stats_one;
+    private TextView player_stats_two;
+    private TextView player_stats_three;
+    private TextView player_stats_four;
+    private TextView player_stats_five;
+    private TextView player_stats_six;
+    private TextView player_stats_seven;
+    private TextView player_stats_eight;
+    private TextView player_stats_nine;
+    private TextView player_stats_ten;
+    private TextView player_stats_eleven;
 
-    @BindView(R.id.player_stat_button)
-    Button player_stat_button;
+    private Button player_stat_button;
 
     private String playerId;
     private ApiService mApiService;
@@ -120,7 +89,7 @@ public class PlayerStatsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playerId = getArguments().getString(ARG_PLAYER_ID);
+        playerId = Objects.requireNonNull(getArguments()).getString(ARG_PLAYER_ID);
 
         mApiService = ApiUtils.getApiService();
     }
@@ -129,7 +98,38 @@ public class PlayerStatsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_player_stats, container, false);
-        ButterKnife.bind(this, v);
+
+        player_head_shot = v.findViewById(R.id.player_head_shot);
+        player_first_name = v.findViewById(R.id.player_first_name);
+        player_last_name = v.findViewById(R.id.player_last_name);
+        player_number = v.findViewById(R.id.player_number);
+        player_team = v.findViewById(R.id.player_team);
+        player_position = v.findViewById(R.id.player_position);
+
+        player_games = v.findViewById(R.id.player_games);
+        player_stats_one = v.findViewById(R.id.player_stat_one);
+        player_stats_two = v.findViewById(R.id.player_stat_two);
+        player_stats_three = v.findViewById(R.id.player_stat_three);
+        player_stats_four = v.findViewById(R.id.player_stat_four);
+        player_stats_five = v.findViewById(R.id.player_stat_five);
+        player_stats_six = v.findViewById(R.id.player_stat_six);
+        player_stats_seven = v.findViewById(R.id.player_stat_seven);
+        player_stats_eight = v.findViewById(R.id.player_stat_eight);
+        player_stats_nine = v.findViewById(R.id.player_stat_nine);
+        player_stats_ten = v.findViewById(R.id.player_stat_ten);
+        player_stats_eleven = v.findViewById(R.id.player_stat_eleven);
+
+        player_stat_label_one = v.findViewById(R.id.player_stat_one_label);
+        player_stat_label_two = v.findViewById(R.id.player_stat_two_label);
+        player_stat_label_three = v.findViewById(R.id.player_stat_three_label);
+        player_stat_label_four = v.findViewById(R.id.player_stat_four_label);
+        player_stat_label_five = v.findViewById(R.id.player_stat_five_label);
+        player_stat_label_six = v.findViewById(R.id.player_stat_six_label);
+        player_stat_label_six = v.findViewById(R.id.player_stat_seven_label);
+        player_stat_label_eight = v.findViewById(R.id.player_stat_eight_label);
+        player_stat_label_nine = v.findViewById(R.id.player_stat_nine_label);
+        player_stat_label_ten = v.findViewById(R.id.player_stat_ten_label);
+        player_stat_label_eleven = v.findViewById(R.id.player_stat_eleven_label);
 
         Picasso.get()
                 .load(String.format("%s%s%s", getString(R.string.nhl_head_shot_url), playerId, ".jpg"))
@@ -154,7 +154,7 @@ public class PlayerStatsFragment extends Fragment {
             @Override
             public void onResponse(@NonNull Call<PlayerDetails> call, @NonNull Response<PlayerDetails> response) {
                 Log.d(TAG, getString(R.string.player_details_successful));
-                bindPlayerDetails(response.body());
+                bindPlayerDetails(Objects.requireNonNull(response.body()));
             }
 
             @Override
@@ -225,7 +225,7 @@ public class PlayerStatsFragment extends Fragment {
             player_stats_seven.setText(playerStats.getSaves().toString());
             player_stats_eight.setText(playerStats.getSavePercentage().toString());
             player_stats_nine.setText(playerStats.getShutouts().toString());
-            player_stats_ten.setText(playerStats.getTimeOnIce().toString());
+            player_stats_ten.setText(playerStats.getTimeOnIce());
             player_stats_eleven.setText(" ");
         }
     }

@@ -1,6 +1,6 @@
 package com.android.stats.teams;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.android.stats.SingleFragmentActivity;
 

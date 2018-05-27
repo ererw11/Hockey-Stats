@@ -1,7 +1,8 @@
 package com.android.stats.teams;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,9 +59,9 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 
         TeamHolder(View itemView) {
             super(itemView);
-            teamCityTextView = itemView.findViewById(R.id.teamCity);
-            teamNameTextView = itemView.findViewById(R.id.teamName);
-            teamConferenceTextView = itemView.findViewById(R.id.teamDivision);
+            teamCityTextView = itemView.findViewById(R.id.team_city);
+            teamNameTextView = itemView.findViewById(R.id.team_name);
+            teamConferenceTextView = itemView.findViewById(R.id.team_division);
             itemView.setOnClickListener(this);
         }
 
