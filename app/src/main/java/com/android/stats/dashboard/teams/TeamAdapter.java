@@ -1,4 +1,4 @@
-package com.android.stats.teams;
+package com.android.stats.dashboard.teams;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +18,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
     private final TeamAdapterOnClickHandler mClickHandler;
     private final List<Team> teamList;
 
-    TeamAdapter(List<Team> teams, TeamAdapterOnClickHandler clickHandler) {
+    public TeamAdapter(List<Team> teams, TeamAdapterOnClickHandler clickHandler) {
         teamList = teams;
         mClickHandler = clickHandler;
     }

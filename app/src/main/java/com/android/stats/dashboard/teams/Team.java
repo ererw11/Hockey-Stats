@@ -1,10 +1,10 @@
-package com.android.stats.teams;
+package com.android.stats.dashboard.teams;
 
 /**
  * Created 3/19/2018.
  */
 
-class Team {
+public class Team {
 
     private int TeamId;
     private String TeamName;

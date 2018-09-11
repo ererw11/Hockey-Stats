@@ -1,4 +1,4 @@
-package com.android.stats.teams;
+package com.android.stats.dashboard.teams;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

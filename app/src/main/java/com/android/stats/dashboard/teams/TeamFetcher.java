@@ -1,4 +1,4 @@
-package com.android.stats.teams;
+package com.android.stats.dashboard.teams;
 
 import android.net.Uri;
 import android.util.Log;
