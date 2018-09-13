@@ -1,4 +1,4 @@
-package com.android.stats.dashboard.teams;
+package com.android.stats.dashboard;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TeamsFragment extends Fragment implements TeamAdapter.TeamAdapterOnClickHandler {
+
     private RecyclerView teamRecyclerView;
 
     private List<Team> teamList = new ArrayList<>();

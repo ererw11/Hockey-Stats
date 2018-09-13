@@ -56,7 +56,7 @@ public class RosterFragment extends Fragment implements RosterAdapter.RosterAdap
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_roster, container, false);
-        rosterRecyclerView = v.findViewById(R.id.team_recycler_view);
+        rosterRecyclerView = v.findViewById(R.id.roster_recycler_view);
 
         RecyclerView.LayoutManager layoutManager;
         if (getResources().getConfiguration().smallestScreenWidthDp >= 600 || getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

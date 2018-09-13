@@ -1,4 +1,4 @@
-package com.android.stats.dashboard.teams;
+package com.android.stats.dashboard;
 
 import androidx.fragment.app.Fragment;
 

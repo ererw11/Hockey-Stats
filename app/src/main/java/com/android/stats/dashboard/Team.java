@@ -1,4 +1,4 @@
-package com.android.stats.dashboard.teams;
+package com.android.stats.dashboard;
 
 /**
  * Created 3/19/2018.

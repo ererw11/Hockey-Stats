@@ -1,4 +1,4 @@
-package com.android.stats.dashboard.teams;
+package com.android.stats.dashboard;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +27,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
     @Override
     public TeamAdapter.TeamHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_view_team, parent, false);
+        View view = inflater.inflate(R.layout.item_view_dashboard_teams, parent, false);
         return new TeamAdapter.TeamHolder(view);
     }
 

@@ -68,8 +68,6 @@ public class PlayerStatsFragment extends Fragment {
     private TextView player_stats_ten;
     private TextView player_stats_eleven;
 
-    private Button player_stat_button;
-
     private String playerId;
     private ApiService mApiService;
 
@@ -138,13 +136,6 @@ public class PlayerStatsFragment extends Fragment {
         loadPlayerDetails(playerId);
 
         loadPlayerStats(playerId);
-
-        player_stat_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "This button is not for you yet", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         return v;
     }
