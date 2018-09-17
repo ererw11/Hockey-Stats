@@ -133,6 +133,7 @@ public class PlayerStatsFragment extends Fragment {
                 .load(String.format("%s%s%s", getString(R.string.nhl_head_shot_url), playerId, ".jpg"))
                 .placeholder(R.drawable.no_skater_image)
                 .into(player_head_shot);
+
         loadPlayerDetails(playerId);
 
         loadPlayerStats(playerId);
@@ -165,7 +166,6 @@ public class PlayerStatsFragment extends Fragment {
         player_position.setText(person.getPrimaryPosition().getName());
         player_team.setText(person.getCurrentTeam().getName());
     }
-
 
     private void loadPlayerStats(String playerId) {
         mApiService.getPlayerStat(playerId).enqueue(new Callback<PlayerStats>() {

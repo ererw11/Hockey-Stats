@@ -1,32 +1,33 @@
 package com.android.stats.dashboard;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.stats.ApiService;
+import com.android.stats.ApiUtils;
 import com.android.stats.R;
-import com.android.stats.roster.RosterActivity;
+import com.android.stats.dashboard.team.Team;
+import com.android.stats.dashboard.team.Team_;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapterOnClickHandler {
+public class DashboardFragment extends Fragment {
 
+    private static final String TAG = DashboardFragment.class.getSimpleName();
     private RecyclerView teamsRecyclerView;
 
-    private List<Team> teamList = new ArrayList<>();
+    private ApiService apiService;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -40,7 +41,8 @@ public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapt
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        new FetchTeamTask().execute();
+
+        apiService = ApiUtils.getApiService();
     }
 
     @Nullable
@@ -55,35 +57,33 @@ public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapt
         teamsRecyclerView.setLayoutManager(layoutManager);
         teamsRecyclerView.setHasFixedSize(true);
 
-        setUpAdapter();
+        loadTeams();
 
         return v;
     }
 
-    private void setUpAdapter() {
+    private void loadTeams() {
+        apiService.getTeams().enqueue(new Callback<Team>() {
+            @Override
+            public void onResponse(Call<Team> call, Response<Team> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Team> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void bindTeams(List<Team_> teams) {
+        setUpAdapter(teams);
+
+    }
+
+    private void setUpAdapter(List<Team_> teams) {
         if (isAdded()) {
-            teamsRecyclerView.setAdapter(new TeamAdapter(teamList, this));
-        }
-    }
-
-    @Override
-    public void onClick(Team team) {
-        Intent newIntent = RosterActivity.newRosterIntent(getContext(), team.getTeamId());
-        startActivity(newIntent);
-    }
-
-    @SuppressLint("StaticFieldLeak")
-    private class FetchTeamTask extends AsyncTask<Void, Void, List<Team>> {
-
-        @Override
-        protected List<Team> doInBackground(Void... voids) {
-            return new TeamFetcher().fetchTeams();
-        }
-
-        @Override
-        protected void onPostExecute(List<Team> teams) {
-            teamList = teams;
-            setUpAdapter();
+            teamsRecyclerView.setAdapter(new com.android.stats.dashboard.TeamAdapter(teams, null));
         }
     }
 }

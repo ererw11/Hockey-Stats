@@ -1,5 +1,6 @@
 package com.android.stats;
 
+import com.android.stats.dashboard.team.Team;
 import com.android.stats.player_stats.skater_details.PlayerDetails;
 import com.android.stats.player_stats.stats.PlayerStats;
 
@@ -7,17 +8,17 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-/**
- * Created 3/26/2018.
- */
-
 public interface ApiService {
+
+    // Get teams
+    @GET("https://statsapi.web.nhl.com/api/v1/teams")
+    Call<Team> getTeams();
 
     // Get player details
     @GET("https://statsapi.web.nhl.com/api/v1/people/{ID}")
     Call<PlayerDetails> getPlayerDetails(@Path("ID") String playerId);
 
     // Get player Stat details
-    @GET("https://statsapi.web.nhl.com/api/v1/people/{ID}/stats?stats=statsSingleSeason&season=20172018")
+    @GET("https://statsapi.web.nhl.com/api/v1/people/{ID}/stats?stats=statsSingleSeason&season=20182019")
     Call<PlayerStats> getPlayerStat(@Path("ID") String playerId);
 }
