@@ -1,5 +1,6 @@
 package com.android.stats.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import com.android.stats.ApiUtils;
 import com.android.stats.R;
 import com.android.stats.dashboard.team.Team;
 import com.android.stats.dashboard.team.Team_;
+import com.android.stats.roster.RosterActivity;
 
 import java.util.List;
 import java.util.Objects;
@@ -24,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapterOnClickHandler {
 
     private static final String TAG = DashboardFragment.class.getSimpleName();
     private RecyclerView teamsRecyclerView;
@@ -86,8 +88,14 @@ public class DashboardFragment extends Fragment {
 
     private void setUpAdapter(List<Team_> teams) {
         if (isAdded()) {
-            teamsRecyclerView.setAdapter(new com.android.stats.dashboard.TeamAdapter(teams, null));
+            teamsRecyclerView.setAdapter(new com.android.stats.dashboard.TeamAdapter(teams, this));
         }
+    }
+
+    @Override
+    public void onClick(Team_ team) {
+        Intent newIntent = RosterActivity.newRosterIntent(getContext(), team.getId());
+        startActivity(newIntent);
     }
 }
 

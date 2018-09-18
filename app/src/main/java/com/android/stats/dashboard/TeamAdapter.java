@@ -34,10 +34,10 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
     @Override
     public void onBindViewHolder(@NonNull TeamAdapter.TeamHolder holder, int position) {
         Team_ team = teamList.get(position);
-//        String teamLocation = team.getTeamLocation();
+        String teamLocation = team.getLocationName();
         String teamName = team.getTeamName();
-//        String teamDivision = team.getTeamDivision();
-        holder.bindView(teamName);//teamLocation, teamName, teamDivision);
+        String teamDivision = team.getDivision().getName();
+        holder.bindView(teamLocation, teamName, teamDivision);
     }
 
     @Override
@@ -65,18 +65,17 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
             itemView.setOnClickListener(this);
         }
 
-        //        void bindView(String teamLocation, String teamName, String conference) {
-        void bindView(String teamName) {
-//            teamCityTextView.setText(teamLocation);
+        void bindView(String teamLocation, String teamName, String conference) {
+            teamCityTextView.setText(teamLocation);
             teamNameTextView.setText(teamName);
-//            teamConferenceTextView.setText(conference);
+            teamConferenceTextView.setText(conference);
         }
 
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
             Team_ selectedTeam = teamList.get(adapterPosition);
-//            mClickHandler.onClick(selectedTeam);
+            mClickHandler.onClick(selectedTeam);
         }
     }
 }
