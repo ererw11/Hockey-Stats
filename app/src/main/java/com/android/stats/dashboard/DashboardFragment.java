@@ -1,6 +1,7 @@
 package com.android.stats.dashboard;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.android.stats.dashboard.team.Team;
 import com.android.stats.dashboard.team.Team_;
 
 import java.util.List;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -66,7 +68,8 @@ public class DashboardFragment extends Fragment {
         apiService.getTeams().enqueue(new Callback<Team>() {
             @Override
             public void onResponse(Call<Team> call, Response<Team> response) {
-
+                Log.d(TAG, "Teams Successful");
+                bindTeams(Objects.requireNonNull(response.body()));
             }
 
             @Override
@@ -76,9 +79,9 @@ public class DashboardFragment extends Fragment {
         });
     }
 
-    private void bindTeams(List<Team_> teams) {
-        setUpAdapter(teams);
-
+    private void bindTeams(Team teams) {
+        List<Team_> teamList = teams.getTeams();
+        setUpAdapter(teamList);
     }
 
     private void setUpAdapter(List<Team_> teams) {
