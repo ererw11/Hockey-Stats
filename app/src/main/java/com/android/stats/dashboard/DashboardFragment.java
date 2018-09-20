@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.android.stats.ApiService;
 import com.android.stats.ApiUtils;
 import com.android.stats.R;
-import com.android.stats.dashboard.standings.Division;
 import com.android.stats.dashboard.standings.Record;
 import com.android.stats.dashboard.standings.Standings;
 import com.android.stats.dashboard.standings.TeamRecord;
@@ -155,7 +154,7 @@ public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapt
 
     private String parseDivision(Record record) {
         List<TeamRecord> teams = record.getTeamRecords();
-        String standings ="";
+        String standings = "";
         for (int i = 0; i < teams.size(); i++) {
             com.android.stats.dashboard.standings.Team team =
                     teams.get(i).getTeam();
