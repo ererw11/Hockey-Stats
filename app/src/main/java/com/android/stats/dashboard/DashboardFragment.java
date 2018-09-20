@@ -6,10 +6,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.android.stats.ApiService;
 import com.android.stats.ApiUtils;
 import com.android.stats.R;
+import com.android.stats.dashboard.standings.Division;
+import com.android.stats.dashboard.standings.Record;
+import com.android.stats.dashboard.standings.Standings;
+import com.android.stats.dashboard.standings.TeamRecord;
 import com.android.stats.dashboard.team.Team;
 import com.android.stats.dashboard.team.Team_;
 import com.android.stats.roster.RosterActivity;
@@ -29,6 +34,12 @@ import retrofit2.Response;
 public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapterOnClickHandler {
 
     private static final String TAG = DashboardFragment.class.getSimpleName();
+
+    private TextView metroDivTextView;
+    private TextView atlanticDivTextView;
+    private TextView centralDivTextView;
+    private TextView pacDivTextView;
+
     private RecyclerView teamsRecyclerView;
 
     private ApiService apiService;
@@ -63,6 +74,13 @@ public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapt
 
         loadTeams();
 
+        metroDivTextView = v.findViewById(R.id.metropolitan_standings);
+        atlanticDivTextView = v.findViewById(R.id.atlantic_standings);
+        centralDivTextView = v.findViewById(R.id.central_standings);
+        pacDivTextView = v.findViewById(R.id.pacific_standings);
+
+        loadStandings();
+
         return v;
     }
 
@@ -84,6 +102,67 @@ public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapt
     private void bindTeams(Team teams) {
         List<Team_> teamList = teams.getTeams();
         setUpAdapter(teamList);
+    }
+
+    private void loadStandings() {
+        apiService.getStandings().enqueue(new Callback<Standings>() {
+            @Override
+            public void onResponse(Call<Standings> call, Response<Standings> response) {
+                Log.d(TAG, "Standings Successful");
+                bindStandings(Objects.requireNonNull(response.body()));
+            }
+
+            @Override
+            public void onFailure(Call<Standings> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void bindStandings(Standings standings) {
+        List<Record> records = standings.getRecords();
+
+        for (int i = 0; i < records.size(); i++) {
+            int divisionId = records.get(i).getDivision().getId();
+            postStandings(divisionId, records.get(i));
+        }
+
+    }
+
+    private void postStandings(int divisionId, Record record) {
+        if (divisionId == 18) {
+            // Division is Metro with id 18
+            String metroStandings = parseDivision(record);
+            metroDivTextView.setText(metroStandings);
+            Log.d(TAG + "Metro_Standings", metroStandings);
+        } else if (divisionId == 17) {
+            // Division is Atlantic with id 17
+            String atlanticStandings = parseDivision(record);
+            atlanticDivTextView.setText(atlanticStandings);
+            Log.d(TAG + "Atlantic_Standings", atlanticStandings);
+        } else if (divisionId == 16) {
+            // Division is Central with id 16
+            String centralStandings = parseDivision(record);
+            centralDivTextView.setText(centralStandings);
+            Log.d(TAG + "Central_Standings", centralStandings);
+        } else if (divisionId == 15) {
+            // Division is Pacific with id 15
+            String pacificStandings = parseDivision(record);
+            pacDivTextView.setText(pacificStandings);
+            Log.d(TAG + "Pacific_Standings", pacificStandings);
+        }
+    }
+
+    private String parseDivision(Record record) {
+        List<TeamRecord> teams = record.getTeamRecords();
+        String standings ="";
+        for (int i = 0; i < teams.size(); i++) {
+            com.android.stats.dashboard.standings.Team team =
+                    teams.get(i).getTeam();
+            Log.d(TAG + " Parse_Division", team.getName());
+            standings = standings + team.getName() + "\n";
+        }
+        return standings;
     }
 
     private void setUpAdapter(List<Team_> teams) {
