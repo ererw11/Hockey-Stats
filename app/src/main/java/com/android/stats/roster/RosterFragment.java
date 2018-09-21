@@ -1,7 +1,7 @@
 package com.android.stats.roster;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.stats.R;
-import com.android.stats.player_stats.PlayerStatsActivity;
+//import com.android.stats.player_stats.PlayerStatsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,10 +80,10 @@ public class RosterFragment extends Fragment implements RosterAdapter.RosterAdap
 
     @Override
     public void onClick(Player player) {
-        Intent newIntent = PlayerStatsActivity.newPlayerStatsIntent(
-                getContext(),
-                Integer.toString(player.getPlayerId()));
-        startActivity(newIntent);
+//        Intent newIntent = PlayerStatsActivity.newPlayerStatsIntent(
+//                getContext(),
+//                Integer.toString(player.getPlayerId()));
+//        startActivity(newIntent);
     }
 
     @SuppressLint("StaticFieldLeak")
