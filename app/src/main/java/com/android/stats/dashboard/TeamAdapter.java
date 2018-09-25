@@ -59,6 +59,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 
         TeamHolder(View itemView) {
             super(itemView);
+
             teamCityTextView = itemView.findViewById(R.id.team_city);
             teamNameTextView = itemView.findViewById(R.id.team_name);
             teamConferenceTextView = itemView.findViewById(R.id.team_division);
