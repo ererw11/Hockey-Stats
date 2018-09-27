@@ -17,6 +17,8 @@ import com.android.stats.dashboard.team.Team;
 import com.android.stats.dashboard.team.Team_;
 import com.android.stats.roster.RosterActivity;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -115,7 +117,24 @@ public class DashboardFragment extends Fragment implements TeamAdapter.TeamAdapt
 
     private void bindTeams(Team teams) {
         List<Team_> teamList = teams.getTeams();
+        sortTeamList(teamList);
         setUpTeamAdapter(teamList);
+    }
+
+    private List<Team_> sortTeamList(List<Team_> teamList) {
+
+        Collections.sort(teamList, new Comparator<Team_>() {
+            @Override
+            public int compare(Team_ team_1, Team_ team_2) {
+                return team_1.getLocationName().compareToIgnoreCase(team_2.getLocationName());
+            }
+        });
+
+        for (int i = 0; i < teamList.size(); i++) {
+            Log.d(TAG, teamList.get(i).getTeamName());
+        }
+
+        return teamList;
     }
 
     private void loadStandings() {
