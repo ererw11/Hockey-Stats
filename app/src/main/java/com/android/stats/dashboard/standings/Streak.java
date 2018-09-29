@@ -15,32 +15,15 @@ public class Streak {
         return streakType;
     }
 
-    public void setStreakType(String streakType) {
-        this.streakType = streakType;
-    }
-
     public int getStreakNumber() {
         return streakNumber;
-    }
-
-    public void setStreakNumber(int streakNumber) {
-        this.streakNumber = streakNumber;
     }
 
     public String getStreakCode() {
         return streakCode;
     }
 
-    public void setStreakCode(String streakCode) {
-        this.streakCode = streakCode;
-    }
-
     public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+        return additionalProperties;
     }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

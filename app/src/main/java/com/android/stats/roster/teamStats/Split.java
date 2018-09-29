@@ -17,16 +17,8 @@ public class Split {
         return stat;
     }
 
-    public void setStat(Stat_ stat) {
-        this.stat = stat;
-    }
-
     public Team getTeam() {
         return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
     }
 
 }

@@ -15,32 +15,15 @@ public class TimeZone {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public int getOffset() {
         return offset;
-    }
-
-    public void setOffset(int offset) {
-        this.offset = offset;
     }
 
     public String getTz() {
         return tz;
     }
 
-    public void setTz(String tz) {
-        this.tz = tz;
-    }
-
     public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+        return additionalProperties;
     }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

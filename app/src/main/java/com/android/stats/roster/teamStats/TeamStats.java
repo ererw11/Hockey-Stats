@@ -18,16 +18,8 @@ public class TeamStats {
         return copyright;
     }
 
-    public void setCopyright(String copyright) {
-        this.copyright = copyright;
-    }
-
     public List<Stat> getStats() {
         return stats;
-    }
-
-    public void setStats(List<Stat> stats) {
-        this.stats = stats;
     }
 
 }

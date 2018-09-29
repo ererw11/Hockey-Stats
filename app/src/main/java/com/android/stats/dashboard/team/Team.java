@@ -15,24 +15,11 @@ public class Team {
         return copyright;
     }
 
-    public void setCopyright(String copyright) {
-        this.copyright = copyright;
-    }
-
     public List<Team_> getTeams() {
         return teams;
     }
 
-    public void setTeams(List<Team_> teams) {
-        this.teams = teams;
-    }
-
     public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+        return additionalProperties;
     }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

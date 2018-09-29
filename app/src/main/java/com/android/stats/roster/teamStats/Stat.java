@@ -18,16 +18,8 @@ public class Stat {
         return type;
     }
 
-    public void setType(Type type) {
-        this.type = type;
-    }
-
     public List<Split> getSplits() {
         return splits;
-    }
-
-    public void setSplits(List<Split> splits) {
-        this.splits = splits;
     }
 
 }

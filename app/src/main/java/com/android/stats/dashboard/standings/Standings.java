@@ -15,24 +15,11 @@ public class Standings {
         return copyright;
     }
 
-    public void setCopyright(String copyright) {
-        this.copyright = copyright;
-    }
-
     public List<Record> getRecords() {
         return records;
     }
 
-    public void setRecords(List<Record> records) {
-        this.records = records;
-    }
-
     public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+        return additionalProperties;
     }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

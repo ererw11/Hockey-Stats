@@ -16,40 +16,19 @@ public class LeagueRecord {
         return wins;
     }
 
-    public void setWins(int wins) {
-        this.wins = wins;
-    }
-
     public int getLosses() {
         return losses;
-    }
-
-    public void setLosses(int losses) {
-        this.losses = losses;
     }
 
     public int getOt() {
         return ot;
     }
 
-    public void setOt(int ot) {
-        this.ot = ot;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+        return additionalProperties;
     }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }
