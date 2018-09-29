@@ -2,6 +2,7 @@ package com.android.stats;
 
 import com.android.stats.dashboard.standings.Standings;
 import com.android.stats.dashboard.team.Team;
+import com.android.stats.roster.teamStats.TeamStats;
 import com.android.stats.player_stats.skater_details.PlayerDetails;
 import com.android.stats.player_stats.stats.PlayerStats;
 
@@ -18,6 +19,10 @@ public interface ApiService {
     // Get Standings
     @GET("https://statsapi.web.nhl.com/api/v1/standings/regularSeason")
     Call<Standings> getStandings();
+
+    // Get Team Stats
+    @GET("https://statsapi.web.nhl.com/api/v1/teams/{ID}/stats")
+    Call<TeamStats> getTeamStats(@Path("ID") String teamId);
 
     // Get player details
     @GET("https://statsapi.web.nhl.com/api/v1/people/{ID}")

@@ -24,15 +24,11 @@
         <activity
             android:name=".roster.RosterActivity"
             android:label="Roster"
-            android:parentActivityName=".dashboard.TeamActivity">
+            android:parentActivityName=".dashboard.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".dashboard.TeamActivity"/>
+                android:value=".dashboard.DashboardActivity"/>
         </activity>
-
-        <activity
-            android:name=".player_stats.PlayerStatsActivity"
-            android:label="Player"/>
 
     </application>
 
